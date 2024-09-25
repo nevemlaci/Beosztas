@@ -15,15 +15,15 @@ public class EmployeeTableComboBoxCellEditor extends DefaultCellEditor {
         });
     }
 
-    @Override
-    public boolean stopCellEditing() {
-        @SuppressWarnings (value="unchecked")
-        JComboBox<String> comboBox = (JComboBox<String>) getComponent();
-        if (comboBox.getSelectedItem() == null || comboBox.getSelectedItem().toString().isEmpty()) {
-            comboBox.setSelectedIndex(0);
-        }
-        return super.stopCellEditing();
-    }
+//    @Override
+//    public boolean stopCellEditing() {
+//        @SuppressWarnings (value="unchecked")
+//        JComboBox<String> comboBox = (JComboBox<String>) getComponent();
+//        if (comboBox.getSelectedItem() == null || comboBox.getSelectedItem().toString().isEmpty()) {
+//            comboBox.setSelectedIndex(0);
+//        }
+//        return super.stopCellEditing();
+//    }
 
     @Override
     public Object getCellEditorValue() {

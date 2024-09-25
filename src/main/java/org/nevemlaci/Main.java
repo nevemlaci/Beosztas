@@ -1,10 +1,12 @@
 package org.nevemlaci;
 
-import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
 
 public class Main {
     public static void main(String[] args) {
-        FlatDarkLaf.setup();
+        FlatLightLaf.setup();
+
         App app = new App();
     }
 }
