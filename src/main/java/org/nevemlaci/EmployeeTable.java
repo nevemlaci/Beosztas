@@ -2,6 +2,7 @@ package org.nevemlaci;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ public class EmployeeTable extends JTable {
     TableModel model;
 
     EmployeeTable(){
+        super();
 
         List<String> employees = new ArrayList<String>();
         employees.add("Pista");
