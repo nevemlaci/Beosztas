@@ -12,7 +12,6 @@ public class MainPanel extends JPanel {
     public MainPanel(){
         super();
         setLayout(new BorderLayout());
-        setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
-        add(employee_panel, BorderLayout.CENTER);
+        add(employee_panel);
     }
 }
