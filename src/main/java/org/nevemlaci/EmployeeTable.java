@@ -12,12 +12,14 @@ public class EmployeeTable extends JTable {
     EmployeeTable(){
         super();
 
+        setGridColor(Color.BLACK);
+        setShowGrid(true);
+
+
         List<String> employees = new ArrayList<String>();
-        employees.add("Pista");
-        employees.add("Jani");
-        employees.add("Géza");
-        employees.add("Béla");
-        employees.add("Józsi");
+        for(int i = 0; i < 50; i++){
+            employees.add("Employee " + i);
+        }
         model = new EmployeeTableModel(employees, this);
         setModel(model);
 
