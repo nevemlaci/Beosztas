@@ -1,4 +1,4 @@
-package org.nevemlaci;
+package org.nevemlaci.schedule;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,10 +14,12 @@ public class App {
         frame.setSize(1280,720);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(main_panel);
+        frame.add(menu,BorderLayout.NORTH);
         frame.setVisible(true);
     }
 
     private JFrame frame;
     private MainPanel main_panel = new MainPanel();
-
+    private Menu menu = new Menu();
+    UIManager ui = new UIManager();
 }
