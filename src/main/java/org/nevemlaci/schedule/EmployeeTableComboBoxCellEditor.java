@@ -1,4 +1,4 @@
-package org.nevemlaci;
+package org.nevemlaci.schedule;
 
 import javax.swing.*;
 import java.awt.event.ItemEvent;
