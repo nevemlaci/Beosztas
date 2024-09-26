@@ -1,4 +1,4 @@
-package org.nevemlaci;
+package org.nevemlaci.schedule;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
@@ -9,11 +9,14 @@ import java.util.List;
 public class EmployeeTable extends JTable {
     TableModel model;
 
+
     EmployeeTable(){
         super();
-
         setGridColor(Color.BLACK);
         setShowGrid(true);
+
+        setSelectionBackground(Color.GRAY);
+        setSelectionForeground(Color.WHITE);
 
 
         List<String> employees = new ArrayList<String>();
@@ -35,6 +38,18 @@ public class EmployeeTable extends JTable {
         setRowHeight(30);
         setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         setColumnSelectionAllowed(true);
+
+
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        setGridColor(Color.BLACK);
+        setShowGrid(true);
+
+        setSelectionBackground(Color.GRAY);
+        setSelectionForeground(Color.WHITE);
     }
 
     public void setSelectedCellsValue(Object value) {
