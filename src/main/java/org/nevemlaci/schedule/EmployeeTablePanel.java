@@ -16,7 +16,7 @@ public class EmployeeTablePanel extends JPanel{
         setLayout(new BorderLayout());
 
         table = new EmployeeTable();
-        scroll_pane = new JScrollPane(table);
+        scroll_pane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         add(scroll_pane, BorderLayout.CENTER);
     }
 
