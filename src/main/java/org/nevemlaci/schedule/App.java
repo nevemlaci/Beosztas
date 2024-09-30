@@ -20,6 +20,19 @@ public class App {
 
     private JFrame frame;
     private MainPanel main_panel = new MainPanel();
-    private Menu menu = new Menu();
-    UIManager ui = new UIManager();
+    private Menu menu = new Menu(this);
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public MainPanel getMainPanel() {
+        return main_panel;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+
 }
