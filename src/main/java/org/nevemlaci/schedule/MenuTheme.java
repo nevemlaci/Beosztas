@@ -10,32 +10,11 @@ import java.awt.event.MouseEvent;
 
 public class MenuTheme extends JMenu {
     public MenuTheme() {
-        super();
-        setText("Theme");
-        JMenuItem light = new JMenuItem("Light");
-        light.addActionListener(e -> {
-            try {
-                UIManager.setLookAndFeel( new FlatLightLaf() );
-                Window[] windows = Window.getWindows();
-                for(Window window : windows){
-                    SwingUtilities.updateComponentTreeUI(window);
-                }
-            }catch (UnsupportedLookAndFeelException ex) {
-                System.out.println(ex.getMessage());
-            }
-        });
-        JMenuItem dark = new JMenuItem("Dark");
-        dark.addActionListener(e -> {
-            try {
-                UIManager.setLookAndFeel( new FlatDarkLaf() );
-                Window[] windows = Window.getWindows();
-                for(Window window : windows){
-                    SwingUtilities.updateComponentTreeUI(window);
-                }
-            }catch (UnsupportedLookAndFeelException ex) {
-                System.out.println(ex.getMessage());
-            }
-        });
+        super("Theme");
+
+        JMenuItem light = new LeftClickableMenuItem("Light", () -> ThemeManager.SetTheme(new FlatLightLaf()));
+        JMenuItem dark = new LeftClickableMenuItem("Dark", () -> ThemeManager.SetTheme(new FlatDarkLaf()));
+
         add(light);
         add(dark);
     }

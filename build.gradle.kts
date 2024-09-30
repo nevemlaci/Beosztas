@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "org.nevemlaci"
+group = "org.nevemlaci.schedule"
 version = "1.0-SNAPSHOT"
 
 repositories {
