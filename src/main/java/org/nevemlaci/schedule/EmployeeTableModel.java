@@ -7,13 +7,11 @@ public class EmployeeTableModel extends AbstractTableModel {
     private final String[] columnNames;
     private final List<String> employees;
     private final String[][] data;
-    private EmployeeTable table;
 
-    public EmployeeTableModel(List<String> employees, EmployeeTable table) {
+    public EmployeeTableModel(List<String> employees) {
         this.employees = employees;
         this.columnNames = new String[32];
         this.columnNames[0] = "Name";
-        this.table = table;
         for (int i = 1; i <= 31; i++) {
             this.columnNames[i] = String.valueOf(i);
         }

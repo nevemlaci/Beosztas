@@ -7,6 +7,7 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class EmployeeTable extends JTable {
     TableModel model;
@@ -22,11 +23,7 @@ public class EmployeeTable extends JTable {
         setSelectionBackground(Color.GRAY);
         setSelectionForeground(Color.WHITE);
 
-        List<String> employees = new ArrayList<>();
-        for(int i = 0; i < 50; i++){
-            employees.add("Employee " + i);
-        }
-        model = new EmployeeTableModel(employees, this);
+        model = new EmployeeTableModel(Settings.getEmployees());
         setModel(model);
 
         getColumnModel().getColumn(0).setResizable(true);
@@ -35,9 +32,8 @@ public class EmployeeTable extends JTable {
         }
 
 
-        String[] options = {"", "6-18", "18-6", "SZ", "P"};
         for (int i = 1; i < getColumnCount(); i++) {
-            DefaultCellEditor editor = new EmployeeTableComboBoxCellEditor(options, this);
+            DefaultCellEditor editor = new EmployeeTableComboBoxCellEditor(Settings.getShifts(), this);
             getColumnModel().getColumn(i).setCellEditor(editor);
         }
         for(int i = 0; i < getRowCount(); i++){

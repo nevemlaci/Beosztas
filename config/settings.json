@@ -1,13 +1,8 @@
 {
   "employees": [
-    {
-      "name": "John Doe"
-    },
-    {
-      "name": "Jane Doe"
-    },
-    {
-      "name": "Jim Doe"
-    }
+    "John Doe", "Jane Doe", "John Smith", "Jane Smith"
+  ],
+  "shifts": [
+    "6-18", "18-6", "SZ", "P", "SZAB"
   ]
 }

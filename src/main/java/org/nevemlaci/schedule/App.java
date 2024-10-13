@@ -3,17 +3,11 @@ package org.nevemlaci.schedule;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Set;
 
 public class App {
 
-    public App() {
-        try {
-            Settings.LoadSettings("config/settings.json");
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        }
-
+    public App(){
         frame = new JFrame("Hello, World!");
         frame.getRootPane().putClientProperty("JRootPane.menuBarEmbedded", true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
