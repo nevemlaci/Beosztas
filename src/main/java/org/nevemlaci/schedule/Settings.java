@@ -21,6 +21,11 @@ public class Settings {
         return shifts;
     }
 
+    /**
+     * Load settings from a JSON file
+     * @param cfg_file path to the json file
+     * @throws IOException if an I/ O error occurs reading from the file or a malformed or unmappable byte sequence is read
+     */
     public static void LoadSettings(String cfg_file) throws IOException {
         File file = new File(cfg_file);
         String json = Files.readString(file.toPath());

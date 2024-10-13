@@ -50,6 +50,10 @@ public class EmployeeTable extends JTable {
         setSelectionForeground(Color.WHITE);
     }
 
+    /**
+     * Set the value of all selected cells to the selected value
+     * @param value the value to set the selected cells to
+     */
     public void setSelectedCellsValue(Object value) {
         int[] selectedRows = getSelectedRows();
         int[] selectedColumns = getSelectedColumns();
