@@ -1,0 +1,9 @@
+{
+  "employees": [
+    "John", "Anna", "Peter"
+  ],
+  "shifts": [
+    "6-18", "18-6", "SZ", "P", "SZAB"
+  ]
+
+}
