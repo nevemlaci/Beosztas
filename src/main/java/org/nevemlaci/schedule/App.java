@@ -18,9 +18,9 @@ public class App {
         frame.setVisible(true);
     }
 
-    private JFrame frame;
-    private MainPanel main_panel = new MainPanel();
-    private Menu menu = new Menu(this);
+    private final JFrame frame;
+    private final MainPanel main_panel = new MainPanel();
+    private final Menu menu = new Menu(this);
 
     public JFrame getFrame() {
         return frame;

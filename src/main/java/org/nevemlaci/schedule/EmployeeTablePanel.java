@@ -8,8 +8,8 @@ public class EmployeeTablePanel extends JPanel{
         return table;
     }
 
-    private EmployeeTable table;
-    private JScrollPane scroll_pane;
+    private final EmployeeTable table;
+    private final JScrollPane scroll_pane;
 
     EmployeeTablePanel() {
         super();

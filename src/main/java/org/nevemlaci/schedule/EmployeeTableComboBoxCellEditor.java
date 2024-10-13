@@ -2,10 +2,11 @@ package org.nevemlaci.schedule;
 
 import javax.swing.*;
 import java.awt.event.ItemEvent;
+import java.util.List;
 
 public class EmployeeTableComboBoxCellEditor extends DefaultCellEditor {
-    public EmployeeTableComboBoxCellEditor(String[] options, EmployeeTable table) {
-        super(new JComboBox<>(options));
+    public EmployeeTableComboBoxCellEditor(List<String> options, EmployeeTable table) {
+        super(new JComboBox<>(options.toArray()));
         @SuppressWarnings (value="unchecked")
         JComboBox<String> comboBox = (JComboBox<String>) getComponent();
         comboBox.addItemListener(e -> {
@@ -14,16 +15,6 @@ public class EmployeeTableComboBoxCellEditor extends DefaultCellEditor {
             }
         });
     }
-
-//    @Override
-//    public boolean stopCellEditing() {
-//        @SuppressWarnings (value="unchecked")
-//        JComboBox<String> comboBox = (JComboBox<String>) getComponent();
-//        if (comboBox.getSelectedItem() == null || comboBox.getSelectedItem().toString().isEmpty()) {
-//            comboBox.setSelectedIndex(0);
-//        }
-//        return super.stopCellEditing();
-//    }
 
     @Override
     public Object getCellEditorValue() {

@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class LeftClickListener extends MouseAdapter {
 
-    Runnable action;
+    final Runnable action;
     public LeftClickListener(Runnable action) {
         super();
         this.action = action;

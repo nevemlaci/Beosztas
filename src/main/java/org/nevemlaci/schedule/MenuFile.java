@@ -1,7 +1,6 @@
 package org.nevemlaci.schedule;
 
 import javax.swing.*;
-import java.awt.event.*;
 
 public class MenuFile extends JMenu {
     public MenuFile() {
