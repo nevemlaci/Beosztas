@@ -8,7 +8,7 @@ public class MainPanel extends JPanel {
         return employee_panel;
     }
 
-    EmployeeTablePanel employee_panel = new EmployeeTablePanel();
+    final EmployeeTablePanel employee_panel = new EmployeeTablePanel();
     public MainPanel(){
         super();
         setLayout(new BorderLayout());
