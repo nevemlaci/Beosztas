@@ -38,4 +38,11 @@ public class Settings {
             shifts.add(0, "");
         }
     }
+
+    public static void WriteSettings(String cfg_file) throws IOException {
+        JSONObject settings = new JSONObject();
+        settings.put("employees", employees);
+        settings.put("shifts", shifts);
+        Files.writeString(new File(cfg_file).toPath(), settings.toString());
+    }
 }
