@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 
 public class Settings {
@@ -28,7 +29,14 @@ public class Settings {
      */
     public static void LoadSettings(String cfg_file) throws IOException {
         File file = new File(cfg_file);
-        String json = Files.readString(file.toPath());
+        String json;
+        try{
+            json = Files.readString(file.toPath());
+        } catch (NoSuchFileException e) {
+            employees.add("");
+            shifts.add(" ");
+            return;
+        }
         JSONObject settings = new JSONObject(json);
         JSONArray employees_array = settings.getJSONArray("employees");
         for (int i = 0; i < employees_array.length(); i++) {
@@ -48,6 +56,14 @@ public class Settings {
         JSONObject settings = new JSONObject();
         settings.put("employees", employees);
         settings.put("shifts", shifts);
-        Files.writeString(new File(cfg_file).toPath(), settings.toString());
+        File out = new File(cfg_file);
+        //noinspection ResultOfMethodCallIgnored
+        out.getParentFile().mkdirs();
+        if(out.createNewFile()){
+            System.out.println("New file created: " + out.getName());
+        } else {
+            System.out.println("data.json file already exists, writing into existing data.json");
+        }
+        Files.writeString(out.toPath(), settings.toString(1));
     }
 }

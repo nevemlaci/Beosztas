@@ -14,5 +14,11 @@ public class Main {
             System.exit(1);
         }
         App app = new App();
+        try {
+            Settings.WriteSettings("config/data.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 }
