@@ -1,12 +1,14 @@
 plugins {
+    id("com.gradleup.shadow") version "8.3.2"
     id("java")
 }
 
 group = "org.nevemlaci.schedule"
-version = "1.0-SNAPSHOT"
+version = ""
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
@@ -15,8 +17,23 @@ dependencies {
     implementation("com.formdev:flatlaf:3.0")
     implementation("org.apache.poi:poi:5.3.0")
     implementation("org.apache.poi:poi-ooxml:5.3.0")
+    implementation("org.json:json:20240303")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jar{
+    archiveBaseName.set("schedule")
+    manifest {
+        attributes["Main-Class"] = "org.nevemlaci.schedule.Main"
+    }
+}
+
+tasks.shadowJar{
+        archiveBaseName.set("schedule")
+    manifest {
+        attributes["Main-Class"] = "org.nevemlaci.schedule.Main"
+    }
 }
