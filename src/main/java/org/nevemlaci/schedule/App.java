@@ -2,10 +2,18 @@ package org.nevemlaci.schedule;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class App {
 
     public App() {
+        try {
+            Settings.LoadSettings("config/settings.json");
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+
         frame = new JFrame("Hello, World!");
         frame.getRootPane().putClientProperty("JRootPane.menuBarEmbedded", true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,9 +26,9 @@ public class App {
         frame.setVisible(true);
     }
 
-    private JFrame frame;
-    private MainPanel main_panel = new MainPanel();
-    private Menu menu = new Menu(this);
+    private final JFrame frame;
+    private final MainPanel main_panel = new MainPanel();
+    private final Menu menu = new Menu(this);
 
     public JFrame getFrame() {
         return frame;
