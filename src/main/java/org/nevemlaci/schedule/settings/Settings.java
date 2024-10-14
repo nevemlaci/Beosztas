@@ -8,11 +8,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Settings {
+public abstract class Settings {
 
-    private static final ArrayList<String> employees = new ArrayList<>();
-    private static final ArrayList<String> shifts = new ArrayList<>();
+    private static ArrayList<String> employees = new ArrayList<>();
+    private static ArrayList<String> shifts = new ArrayList<>();
 
     public static ArrayList<String> getEmployees() {
         return employees;
@@ -65,5 +66,12 @@ public class Settings {
             System.out.println("data.json file already exists, writing into existing data.json");
         }
         Files.writeString(out.toPath(), settings.toString(1));
+    }
+
+    public static void ImportEmployeesFromCSV(String csv_file) throws IOException {
+        File file = new File(csv_file);
+        String csv = Files.readString(file.toPath());
+        String[] lines = csv.split("\n");
+        employees = new ArrayList<>(List.of(lines));
     }
 }

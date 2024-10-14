@@ -7,7 +7,16 @@ import java.awt.*;
 
 public class App {
 
-    public App() {
+    private static App instance;
+
+    public static App Instance(){
+        if(instance == null){
+            instance = new App();
+        }
+        return instance;
+    }
+
+    private App() {
         frame = new JFrame("Hello, World!");
         frame.getRootPane().putClientProperty("JRootPane.menuBarEmbedded", true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

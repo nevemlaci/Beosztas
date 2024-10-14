@@ -1,5 +1,7 @@
 package org.nevemlaci.schedule.table;
 
+import org.nevemlaci.schedule.util.Scaler;
+
 import javax.swing.*;
 import java.awt.*;
 

@@ -9,6 +9,9 @@ import java.io.IOException;
 
 
 public class Main {
+    static {
+        System.setProperty("sun.java2d.noddraw", "true");
+    }
     public static void main(String[] args) {
         Theme.SetTheme(new FlatDarkLaf());
         try {
@@ -17,7 +20,7 @@ public class Main {
             e.printStackTrace();
             System.exit(1);
         }
-        App app = new App();
+        App app = App.Instance();
         try {
             Settings.WriteSettings("config/data.json");
         } catch (IOException e) {
