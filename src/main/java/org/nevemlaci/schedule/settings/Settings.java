@@ -1,4 +1,4 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.settings;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

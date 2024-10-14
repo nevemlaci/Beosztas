@@ -1,4 +1,4 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.menu;
 
 import javax.swing.*;
 

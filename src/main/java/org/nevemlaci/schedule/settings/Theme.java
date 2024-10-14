@@ -1,9 +1,9 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.settings;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ThemeManager {
+public class Theme {
 
     public static void RefreshWindows(){
         Window[] windows = Window.getWindows();

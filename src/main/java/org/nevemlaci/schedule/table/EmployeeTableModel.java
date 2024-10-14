@@ -1,4 +1,4 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.table;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;

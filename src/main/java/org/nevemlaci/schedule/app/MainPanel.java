@@ -1,4 +1,6 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.app;
+
+import org.nevemlaci.schedule.table.EmployeeTablePanel;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.util;
 
 import java.awt.event.*;
 

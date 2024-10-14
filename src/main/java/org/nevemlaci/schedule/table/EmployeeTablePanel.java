@@ -1,4 +1,4 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.table;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,7 @@ public class EmployeeTablePanel extends JPanel{
     private final EmployeeTable table;
     private final JScrollPane scroll_pane;
 
-    EmployeeTablePanel() {
+    public EmployeeTablePanel() {
         super();
         setLayout(new BorderLayout());
 

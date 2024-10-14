@@ -1,4 +1,6 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.menu;
+
+import org.nevemlaci.schedule.app.App;
 
 import javax.swing.*;
 

@@ -1,4 +1,6 @@
-package org.nevemlaci.schedule;
+package org.nevemlaci.schedule.app;
+
+import org.nevemlaci.schedule.menu.Menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +22,7 @@ public class App {
 
     private final JFrame frame;
     private final MainPanel main_panel = new MainPanel();
-    private final Menu menu = new Menu(this);
+    private final org.nevemlaci.schedule.menu.Menu menu = new org.nevemlaci.schedule.menu.Menu(this);
 
     public JFrame getFrame() {
         return frame;
