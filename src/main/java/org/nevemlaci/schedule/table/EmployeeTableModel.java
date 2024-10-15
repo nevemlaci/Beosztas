@@ -5,8 +5,8 @@ import java.util.List;
 
 public class EmployeeTableModel extends AbstractTableModel {
     private final String[] columnNames;
-    private final List<String> employees;
-    private final String[][] data;
+    private List<String> employees;
+    private String[][] data;
 
     public EmployeeTableModel(List<String> employees) {
         this.employees = employees;
@@ -22,6 +22,22 @@ public class EmployeeTableModel extends AbstractTableModel {
                 this.data[i][j] = "";
             }
         }
+    }
+
+    public void nullData(){
+        for (int i = 0; i < employees.size(); i++) {
+            this.data[i][0] = employees.get(i);
+            for (int j = 1; j <= 31; j++) {
+                this.data[i][j] = "";
+            }
+        }
+    }
+
+    public void updateEmployeeNames(List<String> employees){
+        this.employees = employees;
+        this.data = new String[employees.size()][32];
+        nullData();
+        fireTableStructureChanged();
     }
 
     @Override

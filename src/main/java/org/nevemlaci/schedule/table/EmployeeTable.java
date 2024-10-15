@@ -5,6 +5,8 @@ import org.nevemlaci.schedule.settings.Settings;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 import java.awt.*;
+import java.util.List;
+
 
 public class EmployeeTable extends JTable {
     final TableModel model;
@@ -28,10 +30,7 @@ public class EmployeeTable extends JTable {
             getColumnModel().getColumn(i).setResizable(false);
         }
 
-        for (int i = 1; i < getColumnCount(); i++) {
-            DefaultCellEditor editor = new EmployeeTableComboBoxCellEditor(Settings.getShifts(), this);
-            getColumnModel().getColumn(i).setCellEditor(editor);
-        }
+        refreshCellEditor(Settings.getShifts());
 
         getColumnModel().getColumn(0).setPreferredWidth(200);
         for (int i = 1; i < getColumnCount(); i++) {
@@ -42,6 +41,18 @@ public class EmployeeTable extends JTable {
         setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         setColumnSelectionAllowed(true);
 
+    }
+
+    @Override
+    public EmployeeTableModel getModel() {
+        return (EmployeeTableModel) model;
+    }
+
+    public void refreshCellEditor(List<String> options){
+        for (int i = 1; i < getColumnCount(); i++) {
+            DefaultCellEditor editor = new EmployeeTableComboBoxCellEditor(options, this);
+            getColumnModel().getColumn(i).setCellEditor(editor);
+        }
     }
 
     protected void paintComponent(Graphics g) {

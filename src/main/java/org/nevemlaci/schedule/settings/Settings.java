@@ -48,6 +48,10 @@ public abstract class Settings {
         for (int i = 0; i < shifts_array.length(); i++) {
             shifts.add(shifts_array.getString(i));
         }
+        if(shifts.isEmpty()){
+            shifts.add(" ");
+            return;
+        }
         if(!shifts.get(0).equals(" ")){ //add empty option if not present
             shifts.add(0, "");
         }
@@ -73,5 +77,19 @@ public abstract class Settings {
         String csv = Files.readString(file.toPath());
         String[] lines = csv.split("\n");
         employees = new ArrayList<>(List.of(lines));
+    }
+
+    public static void ImportShiftsFromCSV(String csv_file) throws IOException {
+        File file = new File(csv_file);
+        String csv = Files.readString(file.toPath());
+        String[] lines = csv.split("\n");
+        shifts = new ArrayList<>(List.of(lines));
+        if(shifts.isEmpty()){
+            shifts.add(" ");
+            return;
+        }
+        if(!shifts.get(0).equals(" ")){ //add empty option if not present
+            shifts.add(0, "");
+        }
     }
 }
