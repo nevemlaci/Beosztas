@@ -94,10 +94,23 @@ public abstract class Settings {
     }
 
     public static void exportEmployeesToCSV(String csv) {
-        //TODO
+        exportListToCSV(csv, employees);
     }
 
     public static void exportShiftsToCSV(String csv) {
-        //TODO
+        exportListToCSV(csv, shifts);
+    }
+
+    private static void exportListToCSV(String csv, List<String> list) {
+        File outFile = new File(csv);
+        StringBuilder csvContent = new StringBuilder();
+        for (String item : list) {
+            csvContent.append(item).append("\n");
+        }
+        try {
+            Files.writeString(outFile.toPath(), csvContent.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
