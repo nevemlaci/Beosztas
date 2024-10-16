@@ -16,17 +16,11 @@ public class Main {
     public static void main(String[] args) {
         Theme.SetTheme(new FlatDarkLaf());
         try {
-            Settings.LoadSettings("config/data.json");
+            Settings.importSettingsFromJSON("config/settings.json");
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
         App app = App.Instance();
-        try {
-            Settings.WriteSettings("config/data.json");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
     }
 }
