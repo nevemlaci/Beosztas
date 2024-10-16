@@ -75,6 +75,7 @@ public abstract class Settings {
     public static void importEmployeesFromCSV(String csvPath) throws IOException {
         File inFile = new File(csvPath);
         String csvContent = Files.readString(inFile.toPath());
+        csvContent = csvContent.replace("\uFEFF", ""); // throw away bom
         String[] lines = csvContent.split("\n");
         employees = new ArrayList<>(List.of(lines));
     }
