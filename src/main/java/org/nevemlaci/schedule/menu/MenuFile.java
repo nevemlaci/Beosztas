@@ -1,6 +1,7 @@
 package org.nevemlaci.schedule.menu;
 
 import org.nevemlaci.schedule.app.App;
+import org.nevemlaci.schedule.settings.FileSettings;
 import org.nevemlaci.schedule.settings.Settings;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class MenuFile extends JMenu {
         JMenuItem exit = new LeftClickableMenuItem("Exit", () -> System.exit(0));
         JMenuItem loadEmployeesFromCSV = new LeftClickableMenuItem("Load employees from CSV...",
                 () -> {
-                    JFileChooser fileChooser = new JFileChooser();
+                    JFileChooser fileChooser = new JFileChooser(FileSettings.getLastOpenDir());
                     if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                         try {
                             Settings.ImportEmployeesFromCSV(fileChooser.getSelectedFile().toString());
@@ -27,7 +28,7 @@ public class MenuFile extends JMenu {
 
         JMenuItem loadShiftsFromCSV = new LeftClickableMenuItem("Load shifts from CSV...",
                 () -> {
-                    JFileChooser fileChooser = new JFileChooser();
+                    JFileChooser fileChooser = new JFileChooser(FileSettings.getLastOpenDir());
                     if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                         try {
                             Settings.ImportShiftsFromCSV(fileChooser.getSelectedFile().toString());
