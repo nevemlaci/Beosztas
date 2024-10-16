@@ -5,6 +5,7 @@ import org.nevemlaci.schedule.settings.FileSettings;
 import org.nevemlaci.schedule.settings.Settings;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 public class MenuFile extends JMenu {
@@ -16,7 +17,9 @@ public class MenuFile extends JMenu {
                     JFileChooser fileChooser = new JFileChooser(FileSettings.getLastOpenDir());
                     if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                         try {
-                            Settings.ImportEmployeesFromCSV(fileChooser.getSelectedFile().toString());
+                            File file = fileChooser.getSelectedFile();
+                            Settings.importEmployeesFromCSV(file.toString());
+                            FileSettings.setLastOpenDir(file.getParentFile());
                             App.Instance().getMainPanel().getEmployee_panel().getTable().getModel().updateEmployeeNames(Settings.getEmployees());
                             App.Instance().getMainPanel().getEmployee_panel().getTable().refreshCellEditor(Settings.getShifts());
                         }catch (IOException e){
@@ -31,7 +34,9 @@ public class MenuFile extends JMenu {
                     JFileChooser fileChooser = new JFileChooser(FileSettings.getLastOpenDir());
                     if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                         try {
-                            Settings.ImportShiftsFromCSV(fileChooser.getSelectedFile().toString());
+                            File file = fileChooser.getSelectedFile();
+                            Settings.importShiftsFromCSV(file.toString());
+                            FileSettings.setLastOpenDir(file.getParentFile());
                             App.Instance().getMainPanel().getEmployee_panel().getTable().refreshCellEditor(Settings.getShifts());
                         }catch (IOException e){
                             e.printStackTrace();

@@ -9,4 +9,11 @@ public class FileSettings {
     public static File getLastOpenDir() {
         return lastOpenDir;
     }
+
+    public static void setLastOpenDir(File lastOpenDir) {
+        if(!lastOpenDir.isDirectory()){
+            throw new IllegalArgumentException("lastOpenDir must be a directory");
+        }
+        FileSettings.lastOpenDir = lastOpenDir;
+    }
 }
