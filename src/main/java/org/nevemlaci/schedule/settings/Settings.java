@@ -40,6 +40,7 @@ public abstract class Settings {
         }
         JSONObject settings = new JSONObject(json);
         JSONArray employeesArray = settings.getJSONArray("employees");
+        employees = new ArrayList<>();
         for (int i = 0; i < employeesArray.length(); i++) {
             employees.add(employeesArray.getString(i));
         }
@@ -76,6 +77,7 @@ public abstract class Settings {
         File inFile = new File(csvPath);
         String csvContent = Files.readString(inFile.toPath());
         csvContent = csvContent.replace("\uFEFF", ""); // throw away bom
+        csvContent = csvContent.replace("\r", ""); // throw away carriage return
         String[] lines = csvContent.split("\n");
         employees = new ArrayList<>(List.of(lines));
     }
