@@ -2,7 +2,6 @@ package org.nevemlaci.schedule.menu;
 
 import org.nevemlaci.schedule.app.App;
 import org.nevemlaci.schedule.settings.Settings;
-import org.nevemlaci.schedule.settings.Theme;
 
 import javax.swing.*;
 import java.io.IOException;

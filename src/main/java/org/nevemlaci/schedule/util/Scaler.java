@@ -3,8 +3,10 @@ package org.nevemlaci.schedule.util;
 import javax.swing.*;
 import java.awt.*;
 
-public class Scaler {
-    public static Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
+public abstract class Scaler {
+    private Scaler(){}
+
+    public static final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
      * Scales the given dimension to the screen size
