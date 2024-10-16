@@ -10,8 +10,9 @@ import java.io.IOException;
 
 public class Main {
     static {
-        System.setProperty("sun.java2d.noddraw", "true");
+        System.setProperty("sun.java2d.d3d.onscreen", "false");
     }
+
     public static void main(String[] args) {
         Theme.SetTheme(new FlatDarkLaf());
         try {

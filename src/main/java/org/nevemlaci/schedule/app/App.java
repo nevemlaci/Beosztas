@@ -9,6 +9,8 @@ public class App {
 
     private static App instance;
 
+
+
     public static App Instance(){
         if(instance == null){
             instance = new App();
