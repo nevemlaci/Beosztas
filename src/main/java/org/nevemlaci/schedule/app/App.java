@@ -1,15 +1,17 @@
 package org.nevemlaci.schedule.app;
 
 import org.nevemlaci.schedule.menu.Menu;
+import org.nevemlaci.schedule.settings.SettingsIO;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class App {
 
     private static App instance;
-
-
 
     public static App Instance(){
         if(instance == null){
@@ -29,11 +31,22 @@ public class App {
         frame.add(main_panel);
         frame.add(menu,BorderLayout.NORTH);
         frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                try {
+                    SettingsIO.exportSettingsToJSON("config/settings.json");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private final JFrame frame;
     private final MainPanel main_panel = new MainPanel();
-    private final org.nevemlaci.schedule.menu.Menu menu = new org.nevemlaci.schedule.menu.Menu(this);
+    private final Menu menu = new Menu(this);
 
     public JFrame getFrame() {
         return frame;
