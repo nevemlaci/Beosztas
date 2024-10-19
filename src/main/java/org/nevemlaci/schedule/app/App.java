@@ -1,7 +1,7 @@
 package org.nevemlaci.schedule.app;
 
 import org.nevemlaci.schedule.menu.Menu;
-import org.nevemlaci.schedule.settings.Settings;
+import org.nevemlaci.schedule.settings.SettingsIO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +38,7 @@ public class App {
             @Override
             public void windowClosing(WindowEvent windowEvent) {
                 try {
-                    Settings.exportSettingsToJSON("config/settings.json");
+                    SettingsIO.exportSettingsToJSON("config/settings.json");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

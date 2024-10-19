@@ -10,7 +10,11 @@ import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Settings {
+public abstract class SettingsIO {
+
+    private SettingsIO() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static ArrayList<String> employees = new ArrayList<>();
     private static ArrayList<String> shifts = new ArrayList<>();

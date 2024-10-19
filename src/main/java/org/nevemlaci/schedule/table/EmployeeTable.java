@@ -1,6 +1,6 @@
 package org.nevemlaci.schedule.table;
 
-import org.nevemlaci.schedule.settings.Settings;
+import org.nevemlaci.schedule.settings.SettingsIO;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
@@ -22,7 +22,7 @@ public class EmployeeTable extends JTable {
         setSelectionBackground(Color.GRAY);
         setSelectionForeground(Color.WHITE);
 
-        model = new EmployeeTableModel(Settings.getEmployees());
+        model = new EmployeeTableModel(SettingsIO.getEmployees());
         setModel(model);
 
         getColumnModel().getColumn(0).setResizable(true);
@@ -30,7 +30,7 @@ public class EmployeeTable extends JTable {
             getColumnModel().getColumn(i).setResizable(false);
         }
 
-        refreshCellEditor(Settings.getShifts());
+        refreshCellEditor(SettingsIO.getShifts());
 
         getColumnModel().getColumn(0).setPreferredWidth(200);
         for (int i = 1; i < getColumnCount(); i++) {
