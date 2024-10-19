@@ -13,8 +13,6 @@ public class App {
 
     private static App instance;
 
-
-
     public static App Instance(){
         if(instance == null){
             instance = new App();
@@ -48,7 +46,7 @@ public class App {
 
     private final JFrame frame;
     private final MainPanel main_panel = new MainPanel();
-    private final org.nevemlaci.schedule.menu.Menu menu = new org.nevemlaci.schedule.menu.Menu(this);
+    private final Menu menu = new Menu(this);
 
     public JFrame getFrame() {
         return frame;
